@@ -5,3 +5,4 @@ export default function Home() {
    <div className="text-6xl text-red-500">Homepage</div>
   );
 }
+
