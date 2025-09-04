@@ -1,8 +1,16 @@
-import Image from "next/image";
+import Guest from '@/components/Guest';
+import { currentUser } from '@clerk/nextjs/server';
 
-export default function Home() {
+export default async function HomePage() {
+  const user = await currentUser();
+
+  if (!user) {
+    return <Guest />;
+  }
+
   return (
-   <div className="text-6xl text-red-500">Homepage</div>
+    <div className='text-red-400 dark:text-red-300'>
+      <h1>HomePage</h1>
+    </div>
   );
 }
-
